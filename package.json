@@ -2,7 +2,7 @@
   "name": "dashboard_visualization",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://aryslan-sabirov.github.io/data_visualization/",
+  "homepage": "https://aryslan-sabirov.github.io/data_visualization/index.html",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
