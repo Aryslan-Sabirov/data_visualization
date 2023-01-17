@@ -17,6 +17,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
     fontSize: 14,
     marginBottom: 0,
+    fontWeight: "bold",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -40,9 +41,19 @@ function createData(name, channel, demography, time, percentage) {
   return { name, channel, demography, time, percentage };
 }
 
+function createData2(name, channel, demography) {
+  return { name, channel, demography };
+}
+
 const rows = [
   createData("PM20221049", "WEB", "30-40 лет", "20:00", "98%"),
-  createData("PM20221050", "CHATBOT", "женщины", "20:00", "98%"),
+  // createData("PM20221050", "CHATBOT", "женщины"),
+  // createData("PM20221047", "CHATBOT", "60+ лет", "20:00", "92%"),
+];
+
+const rows2 = [
+  // createData("PM20221049", "WEB", "30-40 лет", "20:00", "98%"),
+  createData2("PM20221050", "CHATBOT", "женщины"),
   // createData("PM20221047", "CHATBOT", "60+ лет", "20:00", "92%"),
 ];
 
@@ -54,7 +65,6 @@ export default function PositiveTable() {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      borderCollapse="separate"
     >
       <Box
         sx={{
@@ -79,10 +89,10 @@ export default function PositiveTable() {
         }}
       >
         <Table
-          sx={{ minWidth: 700 }}
+          sx={{
+            minWidth: 700,
+          }}
           aria-label="customized table"
-          emptyCells={Hidden}
-          borderCollapse="separate"
         >
           <TableFooter>
             <TableRow>
@@ -93,7 +103,7 @@ export default function PositiveTable() {
               <StyledTableCell align="right">% отобранных</StyledTableCell>
             </TableRow>
           </TableFooter>
-          <TableBody borderCollapse="separate" emptyCells={Hidden}>
+          <TableBody>
             {rows.map((row) => (
               <StyledTableRow key={row.name}>
                 <StyledTableCell component="th" scope="row">
@@ -103,9 +113,23 @@ export default function PositiveTable() {
                 <StyledTableCell align="right">
                   {row.demography}
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.time}</StyledTableCell>
-                <StyledTableCell align="right" emptyCells={Hidden}>
+                <StyledTableCell align="right" rowSpan={2}>
+                  {row.time}
+                </StyledTableCell>
+
+                <StyledTableCell align="right" rowSpan={2}>
                   {row.percentage}
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+            {rows2.map((row) => (
+              <StyledTableRow key={row.name}>
+                <StyledTableCell component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.channel}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {row.demography}
                 </StyledTableCell>
               </StyledTableRow>
             ))}
