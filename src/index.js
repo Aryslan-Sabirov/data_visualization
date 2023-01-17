@@ -31,7 +31,7 @@ export const RouterElement = () => {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RouterElement />}>
+    <Route path="/data_visualization" element={<RouterElement />}>
       <Route index element={<MenuButtons />} />
       <Route path="dashboard" element={<DelayingAppearance />} />
       <Route path="singleComment" element={<MultilineTextFields />} />
