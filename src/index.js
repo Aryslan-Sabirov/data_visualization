@@ -24,11 +24,11 @@ const router = createBrowserRouter(
     <Route
       path="/"
       element={
-        <>
+        <div>
           <ResponsiveAppBar />
           <FooterComponent />
           <Outlet />
-        </>
+        </div>
       }
     >
       <Route index element={<MenuButtons />} />
